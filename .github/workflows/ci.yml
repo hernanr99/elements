@@ -1,6 +1,23 @@
 name: CI
 
-on: [push, pull_request, repository_dispatch]
+on:
+  push:
+  pull_request:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      suites: 
+        description: 'Test Suites, separated by commas (if empty, all will be ran)'
+        default: ''
+        required: false
+      drivers: 
+        description: 'Drivers, separated by commas (chrome/firefox)(if empty, all will be used)'
+        default: ''
+        required: false
+      players:
+        description: 'Players, separated by commas (vjs/hls/mux/theo)(if empty, all will be used)'
+        default: 'mux'
+        required: false
 
 # To use Turborepo Remote Caching, set the following environment variables.
 env:
@@ -68,7 +85,7 @@ jobs:
           curl -X POST https://api.github.com/repos/muxinc/playback-testing/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -u ${{ secrets.ACCESS_TOKEN }} \
-          --data '{"event_type": "ping", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+          --data '{"event_type": "ping", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'", "drivers": ${{ github.event.inputs.drivers }}, "players": ${{ github.event.inputs.players }}, "suites": ${{ github.event.inputs.suites }} }}'
       - name: ACK - Acknowledge pong from remote repository
         if: github.event.action == 'pong'
         run: |
