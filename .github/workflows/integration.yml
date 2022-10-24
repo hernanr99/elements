@@ -10,7 +10,7 @@ on:
         required: false
       MUX-CDN-URL:
         description: 'MUX-CDN-URL'
-        default: 'mux'
+        default: undefined
         required: false
 
 jobs:
