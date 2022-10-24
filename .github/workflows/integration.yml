@@ -1,4 +1,4 @@
-name: CI
+name: integration
 
 on:
   repository_dispatch:
@@ -9,7 +9,7 @@ on:
         default: ''
         required: false
       MUX-CDN-URL:
-        description: 'Players, separated by commas (vjs/hls/mux/theo)(if empty, all will be used)'
+        description: 'MUX-CDN-URL'
         default: 'mux'
         required: false
 
