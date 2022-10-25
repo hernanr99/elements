@@ -9,7 +9,7 @@ on:
         default: ''
         required: false
       MUX-CDN-URL:
-        description: 'MUX-CDN-URL'
+        description: 'Mux Player hosted script'
         required: false
 
 jobs:
