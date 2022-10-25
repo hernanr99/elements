@@ -1,4 +1,4 @@
-name: Run test on playback-testing
+name: Run integration tests
 
 on:
   repository_dispatch:
@@ -17,13 +17,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - name: Run test on playback-testing
+      - name: Dispatch workflow on external repository
         if: github.event.action != 'Tests results on playback-testing'
         run: |
           curl -X POST https://api.github.com/repos/muxinc/playback-testing/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -u ${{ secrets.ACCESS_TOKEN }} \
           --data '{"event_type": "Run test on playback-testing", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'", "repositoryUrl": "https://api.github.com/repos/hernanr99/elements/dispatches", "players": "mux", "drivers": "chrome", "suites": "'${{ github.event.inputs.suites }}'", "MUX-CDN-URL":"'${{ github.event.inputs.MUX-CDN-URL }}'"  }}'
-      - name: Show test results of playback-testing
+          echo "Integration tests will be run on a separate repository. Once results are ready, a workflow will be executed that will display the results."
+      - name: Show test results from external repository
         if: github.event.action == 'Tests results on playback-testing'
         run: echo -e '${{toJSON(github.event.client_payload.data)}}'
