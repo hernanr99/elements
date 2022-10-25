@@ -35,3 +35,9 @@ jobs:
       - name: Test results
         if: github.event.action == 'pong'
         run: echo -e '${{toJSON(github.event.client_payload.data)}}'
+      - name: Test results 2
+        if: github.event.action == 'pong'
+        run: echo -e '${{toJSON(github.event.client_payload.summary)}}'
+      - name: Test results 3
+        if: github.event.action == 'pong'
+        run: echo -e '${{toJSON(github.event.client_payload.summary2)}}'
