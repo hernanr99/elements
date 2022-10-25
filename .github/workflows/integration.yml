@@ -23,7 +23,7 @@ jobs:
           curl -X POST https://api.github.com/repos/muxinc/playback-testing/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -u ${{ secrets.ACCESS_TOKEN }} \
-          --data '{"event_type": "Run test on playback-testing", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'", "repositoryUrl": "https://api.github.com/repos/hernanr99/elements/dispatches \", "players": "mux", "drivers": "chrome", "suites": "'${{ github.event.inputs.suites }}'", "MUX-CDN-URL":"'${{ github.event.inputs.MUX-CDN-URL }}'"  }}'
+          --data '{"event_type": "Run test on playback-testing", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'", "repositoryUrl": "https://api.github.com/repos/hernanr99/elements/dispatches", "players": "mux", "drivers": "chrome", "suites": "'${{ github.event.inputs.suites }}'", "MUX-CDN-URL":"'${{ github.event.inputs.MUX-CDN-URL }}'"  }}'
       - name: Show test results of playback-testing
         if: github.event.action == 'Tests results on playback-testing'
         run: echo -e '${{toJSON(github.event.client_payload.data)}}'
