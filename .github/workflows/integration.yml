@@ -1,16 +1,6 @@
 name: Run test on playback-testing
 
-on:
-  repository_dispatch:
-  workflow_dispatch:
-    inputs:
-      suites: 
-        description: 'Test Suites, separated by commas (if empty, all will be ran)'
-        default: ''
-        required: false
-      MUX-CDN-URL:
-        description: 'MUX-CDN-URL'
-        required: false
+
 
 jobs:
   integration-test:
