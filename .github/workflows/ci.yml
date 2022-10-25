@@ -1,10 +1,6 @@
 name: CI
 
 on:
-  push:
-  pull_request:
-  repository_dispatch:
-  workflow_dispatch:
     inputs:
       suites: 
         description: 'Test Suites, separated by commas (if empty, all will be ran)'
