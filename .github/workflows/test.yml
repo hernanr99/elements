@@ -19,6 +19,6 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Dispatch workflow on external repository
-        run: echo -e [{data:'File', header:true}, {data:'Result', header:true}] >> $GITHUB_STEP_SUMMARY 
+        run: node test.js
 
 
