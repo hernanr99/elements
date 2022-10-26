@@ -32,11 +32,8 @@ jobs:
         if: github.event.action == 'Test results from external repository'
         run: |
           echo -e '${{toJSON(github.event.client_payload.data)}}' >> results.json
-      - name: Show test results from external repositorys
-        if: github.event.action == 'Test results from external repository'
-        run: |
-          npx github:10up/phpcs-json-to-md --path ./results.json --output ./phpcs-report.md
-          cat phpcs-report.md >> $GITHUB_STEP_SUMMARY
+          with: 
+            writeToJobSummary: true
       - name: Show test results from external repositorys
         if: github.event.action == 'Test results from external repository'
         run: |
