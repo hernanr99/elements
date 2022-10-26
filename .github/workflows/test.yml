@@ -3,7 +3,6 @@
 name: Run integration tests
 
 on:
-  repository_dispatch:
   workflow_dispatch:
     inputs:
       suites:
@@ -20,42 +19,6 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Dispatch workflow on external repository
-        run: echo "{
-                    \"chromeT012VIDEO_JS_6\": \"true\",
-                    \"chromeT012VIDEO_JS_7\": \"true\",
-                    \"chromeT012MUX\": \"true\",
-                    \"chromeT012HLS_JS_1_0\": \"true\",
-                    \"chromeT012HLS_JS_1_1\": \"true\",
-                    \"chromeT012HLS_JS_1_2\": \"true\",
-                    \"chromeT012THEO\": \"true\",
-                    \"chromeT013VIDEO_JS_6\": \"true\",
-                    \"chromeT013VIDEO_JS_7\": \"true\",
-                    \"chromeT013MUX\": \"true\",
-                    \"chromeT013HLS_JS_1_0\": \"true\",
-                    \"chromeT013HLS_JS_1_1\": \"true\",
-                    \"chromeT013HLS_JS_1_2\": \"true\",
-                    \"chromeT013THEO\": \"true\",
-                    \"chromeT014VIDEO_JS_6\": \"true\",
-                    \"chromeT014VIDEO_JS_7\": \"true\",
-                    \"chromeT014MUX\": \"true\",
-                    \"chromeT014HLS_JS_1_0\": \"true\",
-                    \"chromeT014HLS_JS_1_1\": \"true\",
-                    \"chromeT014HLS_JS_1_2\": \"true\",
-                    \"chromeT014THEO\": \"true\",
-                    \"chromeT015VIDEO_JS_6\": \"true\",
-                    \"chromeT015VIDEO_JS_7\": \"true\",
-                    \"chromeT015MUX\": \"true\",
-                    \"chromeT015HLS_JS_1_0\": \"true\",
-                    \"chromeT015HLS_JS_1_1\": \"true\",
-                    \"chromeT015HLS_JS_1_2\": \"true\",
-                    \"chromeT015THEO\": \"true\",
-                    \"chromeT019VIDEO_JS_6\": \"true\",
-                    \"chromeT019VIDEO_JS_7\": \"true\",
-                    \"chromeT019MUX\": \"true\",
-                    \"chromeT019HLS_JS_1_0\": \"true\",
-                    \"chromeT019HLS_JS_1_1\": \"true\",
-                    \"chromeT019HLS_JS_1_2\": \"true\",
-                    \"chromeT019THEO\": \"true\"
-                  }" >> $GITHUB_STEP_SUMMARY 
+        run: echo hola >> $GITHUB_STEP_SUMMARY 
 
 
