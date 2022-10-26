@@ -18,8 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions: {}
     steps:
-      - env:
-          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      - name: Send Results
+        if: github.event.action == 'Run integration tests'
         run: |
-          gh api --header 'Accept: application/vnd.github+json' --method GET /repos/muxinc/playback-testing/actions/runs
+          curl -X GET https://api.github.com/repos/muxinc/playback-testing/check-runs/3331055970 \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -H "Authorization: Bearer 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" \
+          
 
