@@ -19,6 +19,13 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Dispatch workflow on external repository
-        run: node test.js
+        if: github.event.action != 'Test results from external repository'
+        run: |
+          curl -X GET https://api.github.com/repos/muxinc/playback-testing/check-runs/3322739190 \
+          -H "Accept: application/vnd.github+json" \
+          -u ${{ secrets.ACCESS_TOKEN }} \
+      - name: Show test results from external repository
+        if: github.event.action == 'Test results from external repository'
+        run: echo -e '${{toJSON(github.event.client_payload.data)}}'
 
 
