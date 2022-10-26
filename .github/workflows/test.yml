@@ -20,8 +20,5 @@ jobs:
     steps:
       - name: Send Results
         run: |
-          curl -X GET https://api.github.com/repos/muxinc/playback-testing/check-runs/3331055970 \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
-          -H "Authorization: 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" \
-          
+          curl   -X POST   -H "Accept: application/vnd.github+json"   -H "Authorization: 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"   https://api.github.com/repos/hernanr99/elements/check-runs   -d '{"name":"mighty_readme","head_sha":"ce587453ced02b1526dfb4cb910479d431683101","status":"in_progress","external_id":"42","started_at":"2018-05-04T01:14:52Z","output":{"title":"Mighty Readme report","summary":"","text":""}}'
 
