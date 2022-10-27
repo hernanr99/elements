@@ -28,3 +28,6 @@ jobs:
       - name: Show test results from external repository
         if: github.event.action == 'Test results from external repository'
         run: echo -e '${{toJSON(github.event.client_payload.data)}}'
+      - name: Show test results from external repository
+        if: github.event.action == 'Test results from external repository'
+        run: echo '${{toJSON(github.event.client_payload.data.results)}}' >> $GITHUB_STEP_SUMMARY
