@@ -1,6 +1,7 @@
 module.exports = async ({core}, data) => {  
   console.log(data)
-
+  const obj = JSON.parse(data);
+  console.log(obj);
   await core.summary
     .addHeading(`Reference`, 3)
     .addTable([
