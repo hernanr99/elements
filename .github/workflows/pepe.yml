@@ -20,4 +20,4 @@ jobs:
         with:
           script: |
             const script = require('.github/workflows/script.js')
-            await script({core, github})
+            await script({core}, "hola")
