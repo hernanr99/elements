@@ -18,11 +18,4 @@ module.exports = async ({core}, data) => {
     .addTable(array)
     .write()
 }
-  
-  
-  
-  await core.summary
-    .addHeading(`Reference`, 3)
-    .addTable([array])
-    .write()
-}
+
