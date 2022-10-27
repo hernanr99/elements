@@ -19,7 +19,6 @@ jobs:
     timeout-minutes: 60
     steps:
     - name: Job summary (not updated)
-      uses: actions/github-script@v6
       with:
         script: |
           await core
@@ -29,3 +28,4 @@ jobs:
             [{ data: "Test #", header: true }, { data: 'VIDEO_JS_7', header: true }, { data: 'MUX', header: true }, { data: 'HLS_JS_1_1', header: true }, { data: 'THEO', header: true }]
           ];")
             .write();
+    - run: echo hola
