@@ -19,4 +19,4 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Send Results
-        run:  echo ./readme.md >> $GITHUB_STEP_SUMMARY
+        run:  echo "| Test Case | Mux Player |" >> $GITHUB_STEP_SUMMARY
