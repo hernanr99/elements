@@ -20,6 +20,4 @@ jobs:
         with:
           script: |
             const script = require('.github/workflows/script.js')
-            await script({core}, "[
-                [{ data: "Test #", header: true }, { data: 'VIDEO_JS_7', header: true }]
-            ]")
+            await script({core, github})
