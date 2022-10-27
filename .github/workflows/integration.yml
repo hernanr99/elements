@@ -27,8 +27,4 @@ jobs:
           echo "Integration tests will be run on a separate repository. Once results are ready, a workflow will be executed that will display the results."
       - name: Show test results from external repository
         if: github.event.action == 'Test results from external repository'
-        run: echo -e '${{toJSON(github.event.client_payload.data.results)}}'
-      - name: Show test results from external repository
-        if: github.event.action == 'Test results from external repository'
-        run: echo -e '${{toJSON(github.event.client_payload.data.summary)}}'
-
+        run: echo -e '${{toJSON(github.event.client_payload.data)}}'
