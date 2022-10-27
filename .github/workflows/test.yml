@@ -19,4 +19,8 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Send Results
-        run:  echo "| Test Case | Mux Player |" >> $GITHUB_STEP_SUMMARY
+        run: | 
+          echo | Test Case | Mux Player | >> $GITHUB_STEP_SUMMARY
+          echo | :-: | :-: | >> $GITHUB_STEP_SUMMARY
+          echo | [T001](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t001--vod-playback-of-asset-with-landscape-aspect-ratio) | VOD Playback | >> $GITHUB_STEP_SUMMARY
+        
