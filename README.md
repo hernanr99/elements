@@ -1,32 +1,14 @@
-<p align="center">
-  <a href="https://mux.com/">
-    <img src="https://avatars.githubusercontent.com/u/16199997?s=200&v=4" alt="Mux Logo">
-    <h1 align="center">&lt;mux-elements/&gt;</h1>
-  </a>
-  <p align="center">
-    Custom elements for working with media in the browser that Just Work™
-  </p>
-</p>
-
-# Elements
-
-Elements are written to make it easy to work in a variety of web frameworks. If we don't (yet) have a framework-specific "flavor" of an element, we always provide a pure [Web Component](https://developer.mozilla.org/en-US/docs/Web/Web_Components) version that work with HTML and can be used by most modern web frameworks and web application environments.
-
-| Name                                              | Description                                   | Framework     | Official Release Status |
-| ------------------------------------------------- | --------------------------------------------- | ------------- | ----------------------- |
-| [mux-video](packages/mux-video)                   | A Mux-flavored HTML5 video element            | Web Component | Public Beta             |
-| [mux-video-react](packages/mux-video-react)       | A Mux-flavored React video component          | React         | Public Beta             |
-| [mux-audio](packages/mux-audio)                   | A Mux-flavored HTML5 audio element            | Web Component | Public Beta             |
-| [mux-audio-react](packages/mux-audio-react)       | A Mux-flavored HTML5 audio component          | React         | Public Beta             |
-| [mux-player](packages/mux-player)                 | A Mux-flavored HTML5 media player component   | Web Component | 1.x.x 🎉                |
-| [mux-player-react](packages/mux-player-react)     | A Mux-flavored React media player component   | React         | 1.x.x 🎉                |
-| [mux-uploader](packages/mux-uploader)             | A Mux-flavored HTML5 media uploader component | Web Component | Public Beta             |
-| [mux-uploader-react](packages/mux-uploader-react) | A Mux-flavored React media uploader component | React         | Public Beta             |
-
-# Contribution
-
-Please make sure to read the [Contributing Guide](CONTRIBUTING.md) before making a pull request.
-
-Thank you to all the people who already contributed to `<mux-elements/>`!
-
-![Contributors](https://contrib.rocks/image?repo=muxinc/elements)
+| Test Case | Feature | Video.js | Mux Player | hls.js | THEO Player |
+| :-: | :-: | :-: | :-: | :-: | :-: |
+| [T009](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t009--vod-caption-detection-multiple-track--web-mobile), [T010](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t010--vod-playback-with-captions-multiple-tracks--web-mobile) | VOD Captions Multiple Track | ✔️, chromeT010VIDEO_JS_7 | ❌, chromeT010MUX | ✔️, chromeT010HLS_JS_1_2 | ✔️, chromeT010THEO |
+| [T023](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t023--long-running-vod-playback--web-mobile) | VOD Playback Long Running | chromeT023VIDEO_JS_7 | chromeT023MUX | chromeT023HLS_JS_1_2 | chromeT023THEO |
+| [T024](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t024--vod-storyboard-detection--web), [T025](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t025--vod-storyboard-for-landscape-videos--web), [T026](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t026--vod-storyboard-for-portrait-videos--web), [T039](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t039--signed-url-vod-storyboard--web) | VOD Storyboards | ❌, chromeT025VIDEO_JS_7, chromeT026VIDEO_JS_7, chromeT039VIDEO_JS_7 | ✔️, chromeT025MUX, chromeT026MUX, chromeT039MUX | ❌, chromeT025HLS_JS_1_2, chromeT026HLS_JS_1_2, chromeT039HLS_JS_1_2 | ✔️, chromeT025THEO, chromeT026THEO, chromeT039THEO |
+| [T037](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t037--vod-thumbnail--web-mobile), [T038](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t038--signed-url-vod-thumbnail--web-mobile) | VOD Thumbnails | chromeT037VIDEO_JS_7, chromeT038VIDEO_JS_7 | chromeT037MUX, chromeT038MUX | chromeT037HLS_JS_1_2, chromeT038HLS_JS_1_2 | chromeT037THEO, chromeT038THEO |
+| [T012](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t012--live-playback-of-stream-with-landscape-aspect-ratio--web-mobile), [T030](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t030--live-playback-disconnect-and-reconnect--web-mobile), [T031](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t031--live-playback-end--web-mobile), [T032](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t032--live-playback-preload--web-mobile) | Live Playback | ❌, chromeT030VIDEO_JS_7, ❌, ❌ | ❌, chromeT030MUX, ❌, N/A | ❌, chromeT030HLS_JS_1_2, ❌, ❌ | ❌, chromeT030THEO, ❌, ❌ |
+| [T013](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t013--live-playback-of-stream-with-portrait-aspect-ratio--web-mobile) | Live Playback Portrait | ❌ | ❌ | ❌ | ❌ |
+| [T014](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t014--live-playback-with-only-audio--web-mobile) | Live Playback Only Audio | ❌ | ❌ | ❌ | ❌ |
+| [T015](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t015--live-playback-with-only-video--web-mobile) | Live Playback Only Video | ❌ | ❌ | ❌ | ❌ |
+| [T019](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t019--dvr-functionality--web-mobile) | Live Playback DVR | ❌ | ❌ | ❌ | ❌ |
+| [T020](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t020--live-caption-detection-single-track--web-mobile), [T021](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t021--live-playback-with-captions-single-track--web-mobile), [T022](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t022--live-playback-with-portrait-aspect-ratio-and-captions-single-track--web-mobile) | Live Captions Single Track | ❌, chromeT021VIDEO_JS_7, chromeT022VIDEO_JS_7 | ❌, chromeT021MUX, chromeT022MUX | ❌, chromeT021HLS_JS_1_2, chromeT022HLS_JS_1_2 | ❌, chromeT021THEO, chromeT022THEO |
+| [T029](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t029--long-running-live-playback--web-mobile) | Live Playback Long Running | chromeT029VIDEO_JS_7 | chromeT029MUX | chromeT029HLS_JS_1_2 | chromeT029THEO |
+| [T033](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t033--live-slates-on-landscape-aspect-ratio--web-mobile), [T034](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t034--live-slates-on-portrait-aspect-ratio--web-mobile), [T035](https://github.com/muxinc/playback-testing/wiki/Test-Case-Documentation#t035--live-slates-and-source-reconnection--web-mobile) | Live Slates | chromeT033VIDEO_JS_7, chromeT034VIDEO_JS_7, chromeT035VIDEO_JS_7 | chromeT033MUX, chromeT034MUX, chromeT035MUX | chromeT033HLS_JS_1_2, chromeT034HLS_JS_1_2, chromeT035HLS_JS_1_2 | chromeT033THEO, chromeT034THEO, chromeT035THEO |
