@@ -4,12 +4,12 @@ module.exports = async ({core}, data) => {
     results: '"[\\":heavy_check_mark:\\",\\"Test passed\\"],[\\":x:\\",\\"Test failed\\"],[\\":no_entry_sign:\\",\\"Not tested\\"]"'
   }
   const otro = algo.results.replaceAll('\\', '');
-  const otro2 = otro.replaceAll('[', '');
+  constr otro3 = otro.replaceAll('"', '');
+  const otro2 = otro3.replaceAll('[', '');
   console.log(otro2);
   
   const array = otro2.split("],");
   for (i=0;i<array.length;i++) { 
-    array[i].replaceAll('"', '');
     array[i] = array[i].split(",")
   }
   console.log(array);
