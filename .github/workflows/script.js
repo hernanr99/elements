@@ -1,9 +1,7 @@
 module.exports = async ({core}, data) => {  
   console.log(data);
-  console.log("HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA);
-  console.log(data.VODSpeed);
-  console.log(data.Reference);
-  const algo = data.Reference;
+
+  const algo = data;
   const otro = algo.results.replaceAll('\\', '');
   const otro3 = otro.replaceAll('"', '');
   const otro2 = otro3.replaceAll('[', '');
