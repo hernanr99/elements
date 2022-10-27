@@ -1,5 +1,5 @@
 module.exports = async ({core}, data) => {  
-  console.log(data);
+  console.log(data.data);
   const algo = {
     results: '"[{\\"data\\":\\"Symbol\\",\\"header\\":true},{\\"data\\":\\"Description\\",\\"header\\":true}],[\\":heavy_check_mark:\\",\\"Test passed\\"],[\\":x:\\",\\"Test failed\\"],[\\":no_entry_sign:\\",\\"Not tested\\"]"'
   }
