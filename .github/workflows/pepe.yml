@@ -19,18 +19,5 @@ jobs:
       - uses: actions/github-script@v6.3.3
         with:
           script: |
-            const script = require('.github/workflows/script.js')
-            const table = '{
-                "results": "{
-                \"chromeT027VIDEO_JS_6\": \"true\",
-                \"chromeT027VIDEO_JS_7\": \"true\",
-                \"chromeT027MUX\": \"true\",
-                \"chromeT027HLS_JS_1_0\": \"true\",
-                \"chromeT027HLS_JS_1_1\": \"true\",
-                \"chromeT027HLS_JS_1_2\": \"true\",
-                \"chromeT027THEO\": \"true\",
-                \"summaryVODSpeed\": \"{\\"table\\":[[{\\"data\\":\\"Test #\\",\\"header\\":true},{\\"data\\":\\"VIDEO_JS_7\\",\\"header\\":true},{\\"data\\":\\"MUX\\",\\"header\\":true},{\\"data\\":\\"HLS_JS_1_1\\",\\"header\\":true},{\\"data\\":\\"THEO\\",\\"header\\":true}],[\\"T027\\",\\":no_entry_sign:\\",\\":no_entry_sign:\\",\\":no_entry_sign:\\",\\":no_entry_sign:\\"]],\\"header\\":\\"Chrome\\",\\"suite\\":\\"VODSpeed\\"}\",
-                \"Reference\": \"[[{\\"data\\":\\"Symbol\\",\\"header\\":true},{\\"data\\":\\"Description\\",\\"header\\":true}],[\\":heavy_check_mark:\\",\\"Test passed\\"],[\\":x:\\",\\"Test failed\\"],[\\":no_entry_sign:\\",\\"Not tested\\"]]\"
-              }"
-            }'
-            await script({core}, table)
+            const script = require('.github/workflows/script.js')ç
+            await script({core}, "hola")
