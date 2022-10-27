@@ -6,6 +6,7 @@ module.exports = async ({core}, data) => {
   const otro = algo.results.replace("\\", "");
   console.log(otro);
   const otro2 = otro.replace("\", "");
+  console.log(otro2);
   await core.summary
     .addHeading(`Reference`, 3)
     .addTable([
