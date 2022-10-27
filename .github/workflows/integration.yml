@@ -37,4 +37,4 @@ jobs:
         with:
           script: |
             const script = require('.github/workflows/script.js')
-            await script({core, ${{toJSON(github.event.client_payload.data)}} })
+            await script({core}, ${{toJSON(github.event.client_payload.data)}})
