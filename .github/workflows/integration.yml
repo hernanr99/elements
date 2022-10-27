@@ -28,9 +28,12 @@ jobs:
       - name: Show test results from external repository
         if: github.event.action == 'Test results from external repository'
         run: echo -e '${{toJSON(github.event.client_payload.data)}}'
-      - name: Show test results from external repository
-        if: github.event.action == 'Test results from external repository'
-        run: echo -e'${{toJSON(github.event.client_payload.summary)}}'
-      - name: Show test results from external repository
-        if: github.event.action == 'Test results from external repository'
-        run: echo -e'${{toJSON(github.event.client_payload.summary2)}}'
+  echo-input:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/github-script@v6.3.3
+        with:
+          script: |
+            const script = require('.github/workflows/script.js')
+            await script({core, ${{toJSON(github.event.client_payload.data)}} })
