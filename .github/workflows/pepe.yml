@@ -1,4 +1,4 @@
-name: testtt
+name: algo
 
 on:
   workflow_dispatch:
@@ -12,18 +12,14 @@ on:
         required: false
 
 jobs:
-  integration-test:
+  echo-input:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
     steps:
-    - uses: actions/github-script@v6
-      id: my-script
-      with:
-        result-encoding: string
-        retries: 3
-        script: |
-          github.rest.issues.get({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-          })
+      - uses: actions/checkout@v2
+      - uses: actions/github-script@v6
+        env:
+          SHA: '${{env.parentSHA}}'
+        with:
+          script: |
+            const script = require('.github/workflows/script.js')
+            await script({github, context, core})
