@@ -39,4 +39,5 @@ jobs:
         with:
           script: |
             const script = require('.github/workflows/script.js')
-            await script({core}, ${{github.event.client_payload}})
+            await script({core}, ${{github.event.client_payload.Reference}})
+            await script({core}, ${{github.event.client_payload.VODSpeed}})
