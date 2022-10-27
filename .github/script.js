@@ -3,6 +3,6 @@ module.exports = async ({core}, data) => {
 
   await core.summary
     .addHeading(data, 3)
-    .addTable(table)
+    .addTable(data)
     .write();
 }
