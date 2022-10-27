@@ -9,6 +9,7 @@ module.exports = async ({core}, data) => {
   
   const array = otro2.split("],");
   for (i=0;i<array.length;i++) { 
+    array[i].replaceAll('"', '');
     array[i] = array[i].split(",")
   }
   console.log(array);
