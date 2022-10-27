@@ -1,0 +1,29 @@
+name: testtt
+
+on:
+  workflow_dispatch:
+    inputs:
+      suites:
+        description: 'Test Suites, separated by commas (if empty, all will be ran)'
+        default: ''
+        required: false
+      MUX-CDN-URL:
+        description: 'Mux Player hosted script'
+        required: false
+
+jobs:
+  integration-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+    - uses: actions/github-script@v6
+      id: my-script
+      with:
+        result-encoding: string
+        retries: 3
+        script: |
+          github.rest.issues.get({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+          })
