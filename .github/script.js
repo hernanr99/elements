@@ -1,4 +1,4 @@
-module.exports = async ({github, context, core}) => {
+module.exports = async ({core}) => {
   let table = [
     [{ data: "Test #", header: true }, { data: 'VIDEO_JS', header: true }, { data: 'MUX', header: true }, { data: 'HLS_JS', header: true }, { data: 'THEO', header: true }]
   ];
