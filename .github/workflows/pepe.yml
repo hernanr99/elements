@@ -19,5 +19,5 @@ jobs:
       - uses: actions/github-script@v6.3.3
         with:
           script: |
-            const script = require('.github/workflows/script.js')
+            const script = require('.github/workflows/hernan.js')
             await script({core}, "hola")
