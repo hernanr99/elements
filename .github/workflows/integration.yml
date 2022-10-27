@@ -30,6 +30,7 @@ jobs:
         run: echo -e '${{toJSON(github.event.client_payload.data)}}'
   echo-input:
     runs-on: ubuntu-latest
+    if: github.event.action == 'Test results from external repository'
     steps:
       - uses: actions/checkout@v3
       - uses: actions/github-script@v6.3.3
