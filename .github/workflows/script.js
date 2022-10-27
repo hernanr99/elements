@@ -1,6 +1,6 @@
-module.exports = async ({core, github}) => {  
+module.exports = async ({core}, data) => {  
   await core.summary
-    .addHeading("Hola", 3)
-    .addTable(github.event.client_payload.data)
+    .addHeading("goliii", 3)
+    .addTable(data)
     .write();
 }
