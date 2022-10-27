@@ -16,10 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/github-script@v6
-        env:
-          SHA: '${{env.parentSHA}}'
+      - uses: actions/github-script@v6.3.3
         with:
           script: |
             const script = require('.github/workflows/script.js')
-            await script({github, context, core})
+            await script({core})
