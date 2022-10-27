@@ -5,7 +5,7 @@ module.exports = async ({core}, data) => {
   }
   const otro = algo.results.replace('\\', '');
   console.log(otro);
-  const otro2 = algo.substring(2, algo.length - 2)
+  const otro2 = otro.results.replace('\', '');
   console.log(otro2);
   const obj = JSON.parse(data);
   console.log(obj);
