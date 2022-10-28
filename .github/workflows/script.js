@@ -1,21 +1,31 @@
 module.exports = async ({core}, data) => {  
   console.log(data);
+  
+  const keys = Object.keys(data);
+  keys.forEach(a =>{
+    if(a.includes("Summary")){
+      const suiteName = a.split("_")[1];
+      const browser = a.split("_")[2];
+      await convertToArray({core}, data.`${suiteName}`, suiteName, browser);
+    }
+    
   await convertToArray({core}, data.Reference);
-  await convertToArray({core}, data.VODSpeed);
 }
 
-async function convertToArray({core}, data){
-  const otro2 = data.replaceAll('[', '');
-  const otro3 = otro2.replaceAll('"', '');
-  const array = otro3.split("],");
+async function convertToArray({core}, data, suiteName, browser){
+  const data = data.replaceAll('[', '');
+  const data = data.replaceAll('"', '');
+  const array = data.split("],");
   for (i=0;i<array.length;i++) { 
     array[i] = array[i].replaceAll("]]", "");
     array[i] = array[i].split(",");
   }
   console.log(array);
   
+   const header = suiteName ? `${browser} - ${suite}` : "References";
+    
   await core.summary
-  .addHeading(`Reference`, 3)
+  .addHeading(header, 3)
   .addTable(array)
   .write()
 }
