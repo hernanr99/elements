@@ -23,6 +23,8 @@ module.exports = async ({core}) => {
   console.log(keys);
   keys.forEach(async a =>{
     if(a.includes("Summary")){
+      console.log(a);
+      console.log("hola");
       const suiteName = a.split("_")[1];
       const browser = a.split("_")[2];
       await convertToArray({core}, data[a], suiteName, browser);
@@ -39,7 +41,6 @@ async function convertToArray({core}, data, suiteName, browser){
     array[i] = array[i].replaceAll("]]", "");
     array[i] = array[i].split(",");
   }
-  console.log(array);
   
    const header = suiteName ? `${browser} - ${suiteName}` : "References";
     
