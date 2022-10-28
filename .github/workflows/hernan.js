@@ -47,7 +47,7 @@ async function convertToArray({core}, data, suiteName, browser){
    const header = suiteName ? `${browser} - ${suiteName}` : "References";
     
   await core.summary
-  .addHeading(header, 3)
+  .addHeading(header)
   .addTable(array)
   .write()
 }
