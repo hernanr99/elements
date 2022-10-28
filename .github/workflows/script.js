@@ -22,7 +22,7 @@ async function convertToArray({core}, data, suiteName, browser){
   }
   console.log(array);
   
-   const header = suiteName ? `${browser} - ${suite}` : "References";
+   const header = suiteName ? `${browser} - ${suiteName}` : "References";
     
   await core.summary
   .addHeading(header, 3)
