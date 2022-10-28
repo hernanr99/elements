@@ -34,6 +34,8 @@ module.exports = async ({core}) => {
 }
 
 async function convertToArray({core}, data, suiteName, browser){
+  console.log("entra con " + suiteName);
+  
   data = data.replaceAll('[', '');
   data = data.replaceAll('"', '');
   const array = data.split("],");
