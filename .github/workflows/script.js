@@ -2,14 +2,14 @@ module.exports = async ({core}, data) => {
   console.log(data);
   
   const keys = Object.keys(data);
-  keys.forEach(a =>{
+  keys.forEach(async a =>{
     if(a.includes("Summary")){
       const suiteName = a.split("_")[1];
       const browser = a.split("_")[2];
-      convertToArray({core}, data[a], suiteName, browser);
+      await convertToArray({core}, data[a], suiteName, browser);
     }
   });
-  await convertToArray({core}, data.Reference);
+  await convertToArray({core}, data.Reference, null, null);
 }
 
 async function convertToArray({core}, data, suiteName, browser){
