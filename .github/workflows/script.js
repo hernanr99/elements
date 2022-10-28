@@ -1,7 +1,7 @@
 module.exports = async ({core}, data) => {  
   console.log(data);
-  convertToArray({core}, data.Reference);
-  
+  await convertToArray({core}, data.Reference);
+  await convertToArray({core}, data.VODSpeed);
 }
 
 async function convertToArray({core}, data){
