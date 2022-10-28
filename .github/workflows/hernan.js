@@ -1,5 +1,5 @@
-module.exports = async ({core}, data) => {  
-  const algo = {
+module.exports = async ({core}) => {  
+  const data = {
     chromeT027VIDEO_JS_6: 'true',
     chromeT027VIDEO_JS_7: 'true',
     chromeT027MUX: 'true',
@@ -7,24 +7,44 @@ module.exports = async ({core}, data) => {
     chromeT027HLS_JS_1_1: 'true',
     chromeT027HLS_JS_1_2: 'true',
     chromeT027THEO: 'true',
-    table: '{"table":[[{"data":"Test #","header":true},{"data":"VIDEO_JS_7","header":true},{"data":"MUX","header":true},{"data":"HLS_JS_1_1","header":true},{"data":"THEO","header":true}],["T027",":no_entry_sign:",":no_entry_sign:",":no_entry_sign:",":no_entry_sign:"]],"header":"Chrome","suite":"VODSpeed"}',
-    Reference: '[[{"data":"Symbol","header":true},{"data":"Description","header":true}],[":heavy_check_mark:","Test passed"],[":x:","Test failed"],[":no_entry_sign:","Not tested"]]'
+    Summary_VODSpeed_chrome: '[["Test #","VIDEO_JS_7","MUX","HLS_JS_1_1","THEO"],["T027",":no_entry_sign:",":heavy_check_mark:",":no_entry_sign:",":no_entry_sign:"]]',
+    Reference: '[["Symbol","Description"],[":heavy_check_mark:","Test passed"],[":x:","Test failed"],[":no_entry_sign:","Not tested"]]',
+    firefoxT027VIDEO_JS_6: 'true',
+    firefoxT027VIDEO_JS_7: 'true',
+    firefoxT027MUX: 'true',
+    firefoxT027HLS_JS_1_0: 'true',
+    firefoxT027HLS_JS_1_1: 'true',
+    firefoxT027HLS_JS_1_2: 'true',
+    firefoxT027THEO: 'true',
+    Summary_VODSpeed_firefox: '[["Test #","VIDEO_JS_7","MUX","HLS_JS_1_1","THEO"],["T027",":no_entry_sign:",":heavy_check_mark:",":no_entry_sign:",":no_entry_sign:"]]'
   }
+  
+  const keys = Object.keys(data);
+  console.log(keys);
+  keys.forEach(async a =>{
+    if(a.includes("Summary")){
+      const suiteName = a.split("_")[1];
+      const browser = a.split("_")[2];
+      await convertToArray({core}, data[a], suiteName, browser);
+    }
+  });
+  await convertToArray({core}, data.Reference, null, null);
+}
 
-  
-  const algo2 = algo.Reference.replaceAll('"data"', 'data');
-  const algo3 = algo2.replaceAll('"header"', 'header');
-  
-  const otro2 = algo3.replaceAll('[', '');
-  const array = otro2.split("],");
+async function convertToArray({core}, data, suiteName, browser){
+  data = data.replaceAll('[', '');
+  data = data.replaceAll('"', '');
+  const array = data.split("],");
   for (i=0;i<array.length;i++) { 
-    array[i] = array[i].replaceAll("]]", "")
-    array[i] = array[i].split(",")
+    array[i] = array[i].replaceAll("]]", "");
+    array[i] = array[i].split(",");
   }
   console.log(array);
-
+  
+   const header = suiteName ? `${browser} - ${suiteName}` : "References";
+    
   await core.summary
-    .addHeading(`Reference`, 3)
-    .addTable(array)
-    .write()
+  .addHeading(header, 3)
+  .addTable(array)
+  .write()
 }
