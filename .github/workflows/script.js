@@ -1,4 +1,6 @@
-module.exports = async ({core}, data) => {  
+module.exports = async ({core}, data) => {
+  if(!data)
+     return;
   console.log(data);
   
   const keys = Object.keys(data);
@@ -14,6 +16,9 @@ module.exports = async ({core}, data) => {
 }
 
 async function convertToArray({core}, data, suiteName, browser){
+  if(!data)
+     return;
+  
   data = data.replaceAll('[', '');
   data = data.replaceAll('"', '');
   const array = data.split("],");
