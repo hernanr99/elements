@@ -10,6 +10,7 @@ module.exports = async ({core}, data) => {
     }
   });
   await convertToArray({core}, data.Reference, null, null);
+  await core.summary.write();
 }
 
 async function convertToArray({core}, data, suiteName, browser){
@@ -26,6 +27,5 @@ async function convertToArray({core}, data, suiteName, browser){
     
   await core.summary
   .addHeading(header, 3)
-  .addTable(array)
-  .write()
+  .addTable(array);
 }
