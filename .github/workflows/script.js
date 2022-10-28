@@ -1,10 +1,10 @@
 module.exports = async ({core}, data) => {  
   console.log(data);
-  convertToArray(data.Reference);
+  convertToArray({core}, data.Reference);
   
 }
 
-async function convertToArray(data){
+async function convertToArray({core}, data){
   const otro2 = data.replaceAll('[', '');
   const otro3 = otro2.replaceAll('"', '');
   const array = otro3.split("],");
