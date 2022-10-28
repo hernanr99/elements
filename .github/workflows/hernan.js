@@ -14,10 +14,17 @@ module.exports = async ({core}, data) => {
   
   const algo2 = algo.Reference.replaceAll('"data"', 'data');
   const algo3 = algo2.replaceAll('"header"', 'header');
-  console.log(algo3);
+  
+  const otro2 = algo3.replaceAll('[', '');
+  const array = otro2.split("],");
+  for (i=0;i<array.length;i++) { 
+    array[i] = array[i].replaceAll("]]", "")
+    array[i] = array[i].split(",")
+  }
+  console.log(array);
 
   await core.summary
     .addHeading(`Reference`, 3)
-    .addTable(algo3)
+    .addTable(array)
     .write()
 }
