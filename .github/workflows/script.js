@@ -6,7 +6,7 @@ module.exports = async ({core}, data) => {
     if(a.includes("Summary")){
       const suiteName = a.split("_")[1];
       const browser = a.split("_")[2];
-      convertToArray({core}, data[suiteName], suiteName, browser);
+      convertToArray({core}, data[a], suiteName, browser);
     }
   });
   await convertToArray({core}, data.Reference);
