@@ -8,7 +8,7 @@ module.exports = async ({core}, data) => {
       const browser = a.split("_")[2];
       await convertToArray({core}, data.`${suiteName}`, suiteName, browser);
     }
-    
+  }
   await convertToArray({core}, data.Reference);
 }
 
