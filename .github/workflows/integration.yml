@@ -28,7 +28,7 @@ jobs:
       - name: Show test results from external repository
         if: github.event.action == 'Test results from external repository'
         run: |
-          echo -e '${{toJSON(github.event.client_payload.summary)}}'
+          echo -e '${{toJSON(github.event.client_payload)}}'
   echo-input:
     runs-on: ubuntu-latest
     if: github.event.action == 'Test results from external repository'
@@ -38,4 +38,4 @@ jobs:
         with:
           script: |
             const script = require('.github/workflows/script.js')
-            await script({core}, ${{github.event.client_payload.summary}})
+            await script({core}, ${{github.event.client_payload}})
