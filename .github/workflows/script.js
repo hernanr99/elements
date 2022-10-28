@@ -5,7 +5,7 @@ module.exports = async ({core}, data) => {
 }
 
 async function convertToArray(data){
-  const otro2 = algo3.replaceAll('[', '');
+  const otro2 = data.replaceAll('[', '');
   const otro3 = algo2.replaceAll('"', '');
   const array = otro3.split("],");
   for (i=0;i<array.length;i++) { 
