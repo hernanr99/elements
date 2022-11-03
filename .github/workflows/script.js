@@ -1,5 +1,4 @@
 module.exports = async ({core}, data) => {
-  console.log(data);
   
   const keys = Object.keys(data);
   keys.forEach(async a =>{
@@ -27,7 +26,6 @@ async function convertToArray({core}, data, suiteName, browser){
     array[i] = array[i].replaceAll("]]", "");
     array[i] = array[i].split(",");
   }
-  console.log(array);
   
    const header = suiteName ? `${browser} - ${suiteName}` : "References";
     
