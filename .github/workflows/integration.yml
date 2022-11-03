@@ -29,7 +29,7 @@ jobs:
         if: github.event.action == 'Test results from external repository'
         run: |
           echo -e '${{toJSON(github.event.client_payload.summary)}}'
-  echo-input:
+  show-results:
     runs-on: ubuntu-latest
     if: github.event.action == 'Test results from external repository'
     steps:
