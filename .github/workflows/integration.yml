@@ -1,4 +1,4 @@
-name: Run integration tests
+name: Integration tests
 
 on:
   repository_dispatch:
@@ -9,7 +9,7 @@ on:
         required: false
 
 jobs:
-  integration-test:
+  trigger-integration-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
