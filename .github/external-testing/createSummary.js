@@ -1,4 +1,6 @@
 module.exports = async ({core}, data) => {
+    if(data.Reference)
+      await convertToArray({core}, data.Reference, null, null);
   
     const keys = Object.keys(data);
     keys.forEach(async a =>{
@@ -8,9 +10,6 @@ module.exports = async ({core}, data) => {
         await convertToArray({core}, data[a], suiteName, browser);
       }
     });
-    
-    if(data.Reference)
-      await convertToArray({core}, data.Reference, null, null);
     
     await core.summary.write();
   }
