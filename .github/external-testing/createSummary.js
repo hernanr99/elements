@@ -9,9 +9,25 @@ module.exports = async ({core}, data) => {
         const browser = a.split("_")[2];
         await convertToArray({core}, data[a], suiteName, browser);
       }
+      if(a.includes("Links")){
+        await addLinks({core}, data[a]);
+      }
     });
     
     await core.summary.write();
+  }
+
+  async function addLinks({core}, data){
+    console.log(data);
+    if(!data)
+       return;
+    
+    data = data.replaceAll('[', '');
+    data = data.replaceAll('"', '');
+    for (i=0;i<array.length;i++) { 
+        array[i] = array[i].replaceAll("]]", "");
+        array[i] = array[i].split(",");
+    }
   }
   
   async function convertToArray({core}, data, suiteName, browser){
