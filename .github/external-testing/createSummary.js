@@ -3,12 +3,12 @@ module.exports = async ({core}, data) => {
         convertToArray({core}, data.Reference, null, null);
     
     let keys = Object.keys(data);
-    for (i=0;i< keys.length;i++) {
-      if(keys[i].includes("Summary")){
-        const suiteName = keys[i].split("_")[1];
-        const browser = keys[i].split("_")[2];
-        convertToArray({core}, data[keys[i]], suiteName, browser);
-        const linkData = keys[i].replaceAll("Summary", "Links");
+    keys.forEach(a =>{
+      if(a.includes("Summary")){
+        const suiteName = a.split("_")[1];
+        const browser = a.split("_")[2];
+        convertToArray({core}, data[a], suiteName, browser);
+        const linkData = a.replaceAll("Summary", "Links");
         addLinks({core}, data[linkData]);
       }
     }
