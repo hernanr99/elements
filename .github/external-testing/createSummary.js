@@ -22,14 +22,9 @@ module.exports = async ({core}, data) => {
     if(!data)
        return;
     
-    data = data.replaceAll('[', '');
-    data = data.replaceAll('"', '');
-    const array = data.split("],");
-    for (i=0;i<array.length;i++) { 
-        array[i] = array[i].replaceAll("]]", "");
-        array[i] = array[i].split(",");
+    for (i=0;i<data.length;i++) { 
+        await core.summary.addLink(data[i][0], data[i][1]);
     }
-    console.log(array);
     
   }
   
