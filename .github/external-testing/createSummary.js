@@ -1,22 +1,22 @@
 module.exports = async ({core}, data) => {
     if(data.Reference)
-      await convertToArray({core}, data.Reference, null, null);
+        convertToArray({core}, data.Reference, null, null);
     
-    const keys = Object.keys(data);
+    let keys = Object.keys(data);
     for (i=0;i< keys.length;i++) {
       if(keys[i].includes("Summary")){
         const suiteName = keys[i].split("_")[1];
         const browser = keys[i].split("_")[2];
-        await convertToArray({core}, data[keys[i]], suiteName, browser);
+        convertToArray({core}, data[keys[i]], suiteName, browser);
         const linkData = keys[i].replaceAll("Summary", "Links");
-        await addLinks({core}, data[linkData]);
+        addLinks({core}, data[linkData]);
       }
     }
     
     await core.summary.write();
   }
 
-  async function addLinks({core}, data){
+  function addLinks({core}, data){
     console.log(data);
     if(!data)
        return;
@@ -29,12 +29,12 @@ module.exports = async ({core}, data) => {
     }
       
     for (i=0;i<array.length;i++) { 
-        await core.summary.addLink(array[i][0], array[i][1]);
+        core.summary.addLink(array[i][0], array[i][1]);
     }
     
   }
   
-  async function convertToArray({core}, data, suiteName, browser){
+  function convertToArray({core}, data, suiteName, browser){
     if(!data)
        return;
     
@@ -46,9 +46,7 @@ module.exports = async ({core}, data) => {
       array[i] = array[i].split(",");
     }
     
-     const header = suiteName ? `${browser} - ${suiteName}` : "References";
+    const header = suiteName ? `${browser} - ${suiteName}` : "References";
       
-    await core.summary
-    .addHeading(header, 3)
-    .addTable(array);
+    core.summary.addHeading(header,3).addTable(array);
   }
