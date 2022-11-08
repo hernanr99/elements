@@ -8,7 +8,7 @@ module.exports = async ({core}, data) => {
         const suiteName = a.split("_")[1];
         const browser = a.split("_")[2];
         await convertToArray({core}, data[a], suiteName, browser);
-        const linkData = a.replaceAll("Summary", "Links);
+        const linkData = a.replaceAll("Summary", "Links");
         await addLinks({core}, data[linkData]);                               
       }
     });
