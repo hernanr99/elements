@@ -24,10 +24,13 @@ module.exports = async ({core}, data) => {
     
     data = data.replaceAll('[', '');
     data = data.replaceAll('"', '');
+    const array = data.split("],");
     for (i=0;i<array.length;i++) { 
         array[i] = array[i].replaceAll("]]", "");
         array[i] = array[i].split(",");
     }
+    console.log(array);
+    
   }
   
   async function convertToArray({core}, data, suiteName, browser){
