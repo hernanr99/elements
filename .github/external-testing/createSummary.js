@@ -1,3 +1,5 @@
+
+
 module.exports = async ({core}, data) => {
     if(data.Reference)
         convertToArray({core}, data.Reference, null, null);
@@ -11,7 +13,7 @@ module.exports = async ({core}, data) => {
         const linkData = a.replaceAll("Summary", "Links");
         addLinks({core}, data[linkData]);
       }
-    }
+    });
     
     await core.summary.write();
   }
