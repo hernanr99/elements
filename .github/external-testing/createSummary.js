@@ -1,20 +1,19 @@
 module.exports = async ({core}, data) => {
-    if(data.Reference){
+    if(data.Reference)
       await convertToArray({core}, data.Reference, null, null);
-      await core.summary.write();
-    }
     
     const keys = Object.keys(data);
-    keys.forEach(async a =>{
-      if(a.includes("Summary")){
-        const suiteName = a.split("_")[1];
-        const browser = a.split("_")[2];
-        await convertToArray({core}, data[a], suiteName, browser);
-        const linkData = a.replaceAll("Summary", "Links");
+    for (i=0;i< keys.length;i++) {
+      if(keys[i].includes("Summary")){
+        const suiteName = keys[i].split("_")[1];
+        const browser = keys[i].split("_")[2];
+        await convertToArray({core}, data[keys[i]], suiteName, browser);
+        const linkData = keys[i].replaceAll("Summary", "Links");
         await addLinks({core}, data[linkData]);
-        await core.summary.write();
       }
-    });
+    }
+    
+    await core.summary.write();
   }
 
   async function addLinks({core}, data){
