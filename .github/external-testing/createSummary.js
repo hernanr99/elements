@@ -8,9 +8,8 @@ module.exports = async ({core}, data) => {
         const suiteName = a.split("_")[1];
         const browser = a.split("_")[2];
         await convertToArray({core}, data[a], suiteName, browser);
-      }
-      if(a.includes("Links")){
-        await addLinks({core}, data[a]);
+        const linkData = a.replaceAll("Summary", "Links);
+        await addLinks({core}, data[linkData]);                               
       }
     });
     
@@ -21,9 +20,16 @@ module.exports = async ({core}, data) => {
     console.log(data);
     if(!data)
        return;
-    
-    for (i=0;i<data.length;i++) { 
-        await core.summary.addLink(data[i][0], data[i][1]);
+    data = data.replaceAll('[', '');
+    data = data.replaceAll('"', '');
+    const array = data.split("],");
+    for (i=0;i<array.length;i++) { 
+      array[i] = array[i].replaceAll("]]", "");
+      array[i] = array[i].split(",");
+    }
+      
+    for (i=0;i<array.length;i++) { 
+        await core.summary.addLink(array[i][0], array[i][1]);
     }
     
   }
