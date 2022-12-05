@@ -14,6 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
+      - name: Get testing drivers
+        run: |
+          if ${{ github.event.inputs.includeFirefox }} == true; then
+            echo "drivers=Chrome,Firefox" >> $GITHUB_ENV
+          else
+            echo "drivers=Chrome" >> $GITHUB_ENV
+          fi
       - name: Dispatch workflow on external repository
         if: github.event.action != 'Test results from external repository'
         run: |
