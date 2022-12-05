@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: ""
         run: |
-          if ${{ github.event.inputs.includeFirefox }}; then
+          if ${{ github.event.inputs.includeFirefox }} == true; then
             echo "drivers=Chrome,Firefox" >> $GITHUB_ENV
           else
             echo "drivers=Chrome" >> $GITHUB_ENV
