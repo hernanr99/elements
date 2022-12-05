@@ -19,9 +19,9 @@ jobs:
       - name: ""
         run: |
           if ${{ github.event.inputs.includeFirefox }} == true; then
-            "drivers=Chrome,Firefox" >> $GITHUB_ENV
+            echo "drivers=Chrome,Firefox" >> $GITHUB_ENV
           else
-            "drivers=Chrome" >> $GITHUB_ENV
+            echo "drivers=Chrome" >> $GITHUB_ENV
           fi
       - name: Dispatch workflow on external repository
         if: github.event.action != 'Test results from external repository'
