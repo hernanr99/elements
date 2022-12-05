@@ -7,6 +7,9 @@ on:
       MUX_CDN_URL:
         description: 'Mux Player hosted script'
         required: false
+      includeFirefox:
+        type: boolean
+        description: Include Firefox
 
 jobs:
   trigger-integration-tests:
