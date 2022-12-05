@@ -22,6 +22,7 @@ jobs:
           else
             echo "drivers=Chrome" >> $GITHUB_ENV
           fi
+          echo ${{env.drivers}}
           curl -X POST https://api.github.com/repos/muxinc/playback-testing/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -u ${{ secrets.ACCESS_TOKEN }} \
