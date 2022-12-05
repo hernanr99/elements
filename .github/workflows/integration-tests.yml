@@ -17,7 +17,7 @@ jobs:
       - name: Get testing drivers
         if: github.event.action != 'Test results from external repository'
         run: |
-          if ${{ github.event.inputs.includeFirefox }} == true; then
+          if ${{ github.event.inputs.include_firefox }} == true; then
             echo "drivers=Chrome,Firefox" >> $GITHUB_ENV
           else
             echo "drivers=Chrome" >> $GITHUB_ENV
