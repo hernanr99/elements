@@ -16,9 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - name: "Say Hello Mona it's Monday"
+      - name: ""
         run: |
-          if ${ github.event.inputs.includeFirefox }; then
+          if ${{ github.event.inputs.includeFirefox }}; then
             echo "drivers=Chrome,Firefox" >> $GITHUB_ENV
           else
             echo "drivers=Chrome" >> $GITHUB_ENV
